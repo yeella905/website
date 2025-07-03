@@ -74,7 +74,7 @@ export default function Home() {
             <div className="flex flex-col gap-4 w-[70%] m-auto h-full justify-center">
               <Badge
                 variant="secondary"
-                className="bg-[#a2dcdb57] text-[#57a1a6] dark:bg-blue-600 text-sm font-bold p-2 px-5 rounded-xl"
+                className="bg-[#a2dcdb57] text-[#317277] dark:bg-blue-600 text-sm font-bold p-2 px-5 rounded-xl"
               >
                 • Open for work
               </Badge>
@@ -100,6 +100,16 @@ export default function Home() {
               </BentoGrid>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className=" mb-10 bg-[#a2dcdb57] h-[200px] w-[96%] m-auto rounded-md flex justify-center">
+        <div className="flex text-3xl w-[90%] m-auto justify-center text-[#317277]">
+          {" "}
+          My mission is to grow as a developer by creating simple, user-focused
+          websites while building a strong foundation in clean, responsive
+          design and accessible code. I’m passionate about learning and excited
+          to contribute to real-world projects.{" "}
         </div>
       </section>
 
