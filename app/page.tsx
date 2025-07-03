@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { IconBrandFigma } from "@tabler/icons-react";
 import { CardDemo } from "@/components/CardDemo";
+import { Button } from "@/components/ui/button";
 
 const socialMedia = [
   {
@@ -206,6 +207,11 @@ export default function Home() {
               connect <br />
               and chat
             </h1>
+
+            <Button className="mt-10">
+              <a href="mailto:yeella905@gmail.com">Send me an email : </a>
+              <p>yeella905@gmail.com</p>
+            </Button>
           </div>
 
           <div className="rounded-md">

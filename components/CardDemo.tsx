@@ -4,7 +4,11 @@ import { cn } from "@/lib/utils";
 export function CardDemo() {
   return (
     <div className="flex flex-row gap-6">
-      <div className="max-w-xs w-full group/card">
+      <a
+        className="max-w-xs w-full group/card"
+        target="_blank"
+        href="https://github.com/yeella905/ForkNGo"
+      >
         <div
           className={cn(
             " cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl  max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4",
@@ -23,9 +27,13 @@ export function CardDemo() {
             </p>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div className="max-w-xs w-full group/card">
+      <a
+        className="max-w-xs w-full group/card"
+        href="https://github.com/sosehov/localtreasure"
+        target="_blank"
+      >
         <div
           className={cn(
             " cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl  max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4",
@@ -43,7 +51,7 @@ export function CardDemo() {
             </p>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   );
 }
