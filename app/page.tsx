@@ -1,103 +1,208 @@
-import Image from "next/image";
+import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
+import { Badge } from "@/components/ui/badge";
+import { BellIcon, Figma, MapPin, Share2Icon } from "lucide-react";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { IconBrandFigma } from "@tabler/icons-react";
+import { CardDemo } from "@/components/CardDemo";
+
+const socialMedia = [
+  {
+    id: 1,
+    img: "./git.svg",
+    link: "https://github.com/yeella905",
+  },
+  {
+    id: 2,
+    img: "./link.svg",
+    link: "https://www.linkedin.com/in/ellaye/",
+  },
+];
+
+const features = [
+  {
+    Icon: MapPin,
+    name: "Ella Ye",
+    description: "Toronto, ON.",
+    href: "#",
+    className: "col-span-3 lg:col-span-1",
+  },
+  {
+    className: "col-span-3 lg:col-span-2  row-span-2",
+    background: (
+      <div>
+        <img src="./profile.jpg" />
+      </div>
+    ),
+  },
+  {
+    Icon: Share2Icon,
+    name: "Socials",
+    description: "Connect with me.",
+    href: "#",
+    className: "col-span-3 lg:col-span-1",
+    background: (
+      <div className="flex items-center md:gap-3 gap-6 mt-8 ml-5">
+        {socialMedia.map((info) => (
+          <a target="_blank" href={info.link}>
+            <div
+              key={info.id}
+              className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
+            >
+              <img src={info.img} alt="icons" width={20} height={20} />
+            </div>
+          </a>
+        ))}
+      </div>
+    ),
+  },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div>
+      <section className="w-full ">
+        <div className="grid grid-cols-2 gap-2 ">
+          <div className=" h-[80vh] ">
+            <div className="flex flex-col gap-4 w-[70%] m-auto h-full justify-center">
+              <Badge
+                variant="secondary"
+                className="bg-[#a2dcdb57] text-[#57a1a6] dark:bg-blue-600 text-sm font-bold p-2 px-5 rounded-xl"
+              >
+                • Open for work
+              </Badge>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+              <h1 className="font-bold text-5xl">
+                Hi, I'm a <br /> Front-end developer
+              </h1>
+
+              <p>
+                Recent graduate from Light house labs web development diploma,
+                <br />
+                with previous experience in 2D animation.
+              </p>
+            </div>
+          </div>
+
+          <div className="">
+            <div className="flex flex-col gap-4 w-[70%] h-full justify-center">
+              <BentoGrid>
+                {features.map((feature, idx) => (
+                  <BentoCard key={idx} {...feature} />
+                ))}
+              </BentoGrid>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      <section>
+        <div className="grid grid-cols-[20%_80%] gap-10 w-[82%] m-auto">
+          <div className="w-[80%] m-auto">
+            <h1 className="font-bold text-5xl">
+              How can I <br /> assist you?
+            </h1>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2">
+            <Card className="max-w-xl ">
+              <CardContent>
+                <div className="flex flex-row gap-4">
+                  <div className="w-[100px]">
+                    <IconBrandFigma size={48} />
+                  </div>
+                  <p>
+                    I can design intuitive, visually appealing interfaces that
+                    enhance the user experience and navigation ensuing the app
+                    is easy to use among all platforms
+                  </p>
+                </div>
+              </CardContent>
+              <CardFooter className="flex justify-between w-full">
+                <div className="text-lg">UI Design</div>
+                <div className="text-lg">01</div>
+              </CardFooter>
+            </Card>
+
+            <Card className="max-w-xl ">
+              <CardContent>
+                <div className="flex flex-row gap-4">
+                  <div className="w-[100px]">
+                    <IconBrandFigma size={48} />
+                  </div>
+                  <p>
+                    I build intuitive, visually appealing interfaces that
+                    enhance user experience and streamline navigation, ensuring
+                    applications are responsive, accessible, and seamless across
+                    all platforms
+                  </p>
+                </div>
+              </CardContent>
+              <CardFooter className="flex justify-between w-full">
+                <div className="text-lg">Development</div>
+                <div className="text-lg">02</div>
+              </CardFooter>
+            </Card>
+
+            <Card className="max-w-xl ">
+              <CardContent>
+                <div className="flex flex-row gap-4">
+                  <div className="w-[100px]">
+                    <IconBrandFigma size={48} />
+                  </div>
+                  <p>
+                    I create engaging, visually compelling 2D animations that
+                    elevate storytelling and enhance viewer experience, ensuring
+                    smooth, expressive motion across various platforms and
+                    audiences.
+                  </p>
+                </div>
+              </CardContent>
+              <CardFooter className="flex justify-between w-full">
+                <div className="text-lg">2D animation</div>
+                <div className="text-lg">03</div>
+              </CardFooter>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-30 mb-10">
+        <div className="grid grid-cols-[20%_80%] gap-10 w-[82%] m-auto">
+          <div className="w-[80%] m-auto">
+            <h1 className="font-bold text-5xl">
+              Selected <br /> work?
+            </h1>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2">
+            <CardDemo />
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-30 mb-10">
+        <div className="grid grid-cols-[40%_60%] gap-10 w-[82%] m-auto">
+          <div className="w-[80%] m-auto">
+            <h1 className="font-bold text-5xl">
+              Let's <br />
+              connect <br />
+              and chat
+            </h1>
+          </div>
+
+          <div className="rounded-md">
+            <img src="./bg.jpg" className="rounded-md" />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
